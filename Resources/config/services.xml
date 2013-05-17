@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="astina_fotolia.client.real.class">Astina\Bundle\FotoliaBundle\Client\Client</parameter>
+        <parameter key="astina_fotolia.client.cache.class">Astina\Bundle\FotoliaBundle\Client\CacheClient</parameter>
+        <parameter key="astina_fotolia.client.cache.dir">%kernel.cache_dir%/fotolia</parameter>
+        <parameter key="astina_fotolia.client.cache.lifetime">86400</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="astina_fotolia.client" abstract="true" />
+
+        <service id="astina_fotolia.client.real" class="%astina_fotolia.client.real.class%">
+            <argument><!-- fotolia.api_key --></argument>
+            <argument><!-- use_https --></argument>
+        </service>
+
+        <service id="astina_fotolia.client.cache" class="%astina_fotolia.client.cache.class%">
+            <argument type="service" id="astina_fotolia.client.real" />
+            <argument>%astina_fotolia.client.cache.dir%</argument>
+            <argument>%astina_fotolia.client.cache.lifetime%</argument>
+        </service>
+
+    </services>
+
+</container>

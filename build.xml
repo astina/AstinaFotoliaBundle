@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AstinaFotoliaBundle" default="build">
+    <target name="build" depends="composer-install, phpunit" />
+
+    <target name="composer-download"
+            description="Remove old composer and install new one">
+        <delete file="composer.phar" />
+        <exec command="curl -sS https://getcomposer.org/installer | php" />
+    </target>
+
+    <target name="composer-install"
+            description="Remove composer.lock file and install vendors"
+            depends="composer-download">
+        <delete file="composer.lock" />
+        <composer command="install">
+            <arg value="--dev" />
+        </composer>
+    </target>
+
+    <target name="phpunit"
+            description="Run unit tests with PHPUnit">
+        <exec command="phpunit"
+              checkreturn="true"
+              passthru="true" />
+    </target>
+
+</project>

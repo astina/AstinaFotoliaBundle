@@ -1,0 +1,4 @@
+astina_fotolia:
+    api_key: test
+    use_https: false
+    caching: true
