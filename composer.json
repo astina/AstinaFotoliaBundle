@@ -6,6 +6,10 @@
         {
             "name": "Astina AG",
             "email": "admin@astina.ch"
+        },
+        {
+            "name": "Olivier Sirven, Fotolia.com",
+            "email": "olivier@fotolia.com"
         }
     ],
     "require": {
