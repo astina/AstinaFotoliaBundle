@@ -46,7 +46,7 @@ class CacheClient implements ClientInterface
      */
     private function callCached($method, $args)
     {
-        if ($data = $this->findCachedData($method, $args)) {
+        if (null === ($data = $this->findCachedData($method, $args))) {
             return $data;
         }
 
