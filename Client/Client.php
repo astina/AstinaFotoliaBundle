@@ -294,6 +294,7 @@ class Client implements ClientInterface
 
         curl_setopt($ch, CURLOPT_FILE, $output_fd);
         curl_setopt($ch, CURLOPT_USERPWD, $this->_getHttpAuth(TRUE, TRUE));
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 
         $response = curl_exec($ch);
 
