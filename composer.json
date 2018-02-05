@@ -1,7 +1,7 @@
 {
     "name": "astina/fotolia-bundle",
     "description": "Symfony Bundle integrating Fotolia-API",
-    "license": "GNU",
+    "license": "GPL-2.0-only",
     "authors": [
         {
             "name": "Astina AG",
